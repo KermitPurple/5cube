@@ -4,12 +4,12 @@
 class Coord
 {
 private:
+public:
     double x;
     double y;
     double z;
     double w;
     double l;
-public:
     Coord();
     Coord(double xx, double yy, double zz, double ww, double ll);
 };

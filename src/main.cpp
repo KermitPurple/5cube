@@ -19,5 +19,7 @@ int main(int argc, char* argv[]){
 
     glutDisplayFunc(display);
     glutIdleFunc(display);
+
+    glutMainLoop();
 	return 0;
 }
