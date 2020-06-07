@@ -9,9 +9,9 @@ public:
     double y;
     double z;
     double w;
-    double l;
+    double v;
     Coord();
-    Coord(double xx, double yy, double zz, double ww, double ll);
+    Coord(double xx, double yy, double zz, double ww, double vv);
 };
 
 #endif /* COORD_H */

@@ -5,13 +5,13 @@ Coord::Coord(){
     y = 0;
     z = 0;
     w = 0;
-    l = 0;
+    v = 0;
 }
 
-Coord::Coord(double xx, double yy, double zz, double ww, double ll){
+Coord::Coord(double xx, double yy, double zz, double ww, double vv){
     x = xx;
     y = yy;
     z = zz;
     w = ww;
-    l = ll;
+    v = vv;
 }
