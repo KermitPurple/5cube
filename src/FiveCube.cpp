@@ -4,7 +4,7 @@
 #include<math.h>
 
 FiveCube::FiveCube(){
-    distance = 200;
+    distance = 100;
     reset_points();
 };
 
