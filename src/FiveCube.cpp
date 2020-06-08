@@ -2,6 +2,7 @@
 #include<FiveCube.h>
 
 FiveCube::FiveCube(){
+    distance = 100;
     reset_points();
 };
 
@@ -38,4 +39,23 @@ void FiveCube::reset_points(){
 	points[29] = {-50, 50, -50, -50, -50};
 	points[30] = {-50, -50, -50, -50, -50};
 	points[31] = {50, -50, -50, -50, -50};
+}
+
+void FiveCube::project_points(){
+    for(int i = 0; i < arr_size; i++){
+        std::cout << points[i].x << ", " << points[i].z << ", " << points[i].z << ", " << points[i].w << ", " << points[i].v << std::endl;
+        // convert from fifth dimension to fourth
+        double multiplier = distance * 0.75 / (distance - points[i].v);
+        projected[i].x = points[i].x * multiplier;
+        projected[i].y = points[i].y * multiplier;
+        projected[i].z = points[i].z * multiplier;
+        projected[i].w = points[i].w * multiplier;
+        std::cout << projected[i].x << ", " << projected[i].z << ", " << projected[i].z << ", " << projected[i].w << std::endl;
+        // convert from fourth dimension to third
+        multiplier = distance * 0.75 / (distance - points[i].w);
+        projected[i].x = projected[i].x * multiplier;
+        projected[i].y = projected[i].y * multiplier;
+        projected[i].z = projected[i].z * multiplier;
+        std::cout << projected[i].x << ", " << projected[i].z << ", " << projected[i].z << std::endl << std::endl;
+    }
 }

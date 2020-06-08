@@ -11,6 +11,7 @@ void display(){
 }
 
 int main(int argc, char* argv[]){
+    cube.project_points();
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
     glutInitWindowSize(675, 675);
