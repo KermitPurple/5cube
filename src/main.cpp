@@ -1,7 +1,6 @@
 #include<iostream>
 #include<GL/glut.h>
 #include<FiveCube.h>
-using namespace std;
 
 FiveCube cube;
 
@@ -46,6 +45,12 @@ void kbin(unsigned char key, int x, int y){
     }
 }
 
+void print_controls(){
+    std::cout << "w, a, s, d, q, e : rotate" << std::endl;
+    std::cout << "- : decrease size" << std::endl;
+    std::cout << "+ : increase size" << std::endl;
+}
+
 int main(int argc, char* argv[]){
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
@@ -53,6 +58,8 @@ int main(int argc, char* argv[]){
     glutCreateWindow("5D cube");
     glOrtho(-100, 100, -100, 100, -100, 100);
     glRotatef(45, 1, 1, 0);
+
+    print_controls();
 
     glutDisplayFunc(display);
     glutIdleFunc(display);
