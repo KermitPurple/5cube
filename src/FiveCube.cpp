@@ -135,3 +135,7 @@ void FiveCube::rotate(double angle){
     rotateZW(angle);
     // rotateZV(angle);
 }
+
+void FiveCube::change_distance(double change){
+    distance += change;
+}

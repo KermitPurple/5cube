@@ -37,6 +37,12 @@ void kbin(unsigned char key, int x, int y){
         case 'e':
             glRotatef(-1, 0, 0, 1);
             break;
+        case '-':
+            cube.change_distance(1);
+            break;
+        case '+':
+            cube.change_distance(-1);
+            break;
     }
 }
 

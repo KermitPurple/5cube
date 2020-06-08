@@ -22,6 +22,7 @@ public:
     void rotateZW(double angle);
     void rotateZV(double angle);
     void rotate(double angle);
+    void change_distance(double change);
 };
 
 #endif /* FIV_CUBE_H */
