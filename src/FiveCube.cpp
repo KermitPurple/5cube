@@ -106,6 +106,10 @@ void FiveCube::rotateWV(double angle){
 }
 
 void FiveCube::rotateZW(double angle){
+    total += angle;
+    if(angle > M_PI){
+        reset_points();
+    }
     for(int i = 0; i < arr_size; i++){
         points[i].z = points[i].z * cos(angle) - points[i].w * sin(angle);
         points[i].w = points[i].z * sin(angle) + points[i].w * cos(angle);
