@@ -7,6 +7,7 @@ class FiveCube {
 private:
     static const int arr_size = 32;
     static const int cube_arr_size = 8;
+    static constexpr double start_num = 30;
     double distance;
     Coord points[arr_size];
     Coord projected[arr_size];
