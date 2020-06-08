@@ -62,27 +62,31 @@ void FiveCube::project_points(){
 }
 
 void FiveCube::draw(){
+    glPointSize(4);
     glBegin(GL_POINTS);
     for(int i = 0; i < arr_size; i++){
         glVertex3f(projected[i].x, projected[i].y, projected[i].z);
     }
     glEnd();
     draw_cube(projected);
-    // draw_cube(projected + cube_arr_size);
-    // draw_cube(projected + cube_arr_size * 2);
-    // draw_cube(projected + cube_arr_size * 3);
+    draw_cube(projected + cube_arr_size);
+    draw_cube(projected + cube_arr_size * 2);
+    draw_cube(projected + cube_arr_size * 3);
 }
 
 void FiveCube::draw_cube(Coord* p){
-    for(int i = 0; i < cube_arr_size; i++){
+    for(int i = 0; i < 4; i++){
+        //draw top
         glBegin(GL_LINES);
             glVertex3f(p[i].x, p[i].y, p[i].z);
             glVertex3f(p[(i+1)%4].x, p[(i+1)%4].y, p[(i+1)%4].z);
         glEnd();
+        //draw bottom
         glBegin(GL_LINES);
             glVertex3f(p[i+4].x, p[i+4].y, p[i+4].z);
             glVertex3f(p[((i+1)%4)+4].x, p[((i+1)%4)+4].y, p[((i+1)%4)+4].z);
         glEnd();
+        //connect
         glBegin(GL_LINES);
             glVertex3f(p[i].x, p[i].y, p[i].z);
             glVertex3f(p[i + 4].x, p[i + 4].y, p[i + 4].z);
