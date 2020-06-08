@@ -4,7 +4,7 @@
 #include<math.h>
 
 FiveCube::FiveCube(){
-    distance = 100;
+    distance = 200;
     reset_points();
 };
 
@@ -64,13 +64,23 @@ void FiveCube::project_points(){
 
 void FiveCube::draw(){
     glPointSize(4);
+    //points
     glBegin(GL_POINTS);
     for(int i = 0; i < arr_size; i++){
         glVertex3f(projected[i].x, projected[i].y, projected[i].z);
     }
     glEnd();
+    //cubes
     for(int i = 0; i < 4; i++){
         draw_cube(projected + cube_arr_size * i);
+    }
+    //connect
+    for(int i = 0; i < arr_size; i++){
+        int j = (i + cube_arr_size) % arr_size;
+        glBegin(GL_LINES);
+            glVertex3f(projected[i].x, projected[i].y, projected[i].z);
+            glVertex3f(projected[j].x, projected[j].y, projected[j].z);
+        glEnd();
     }
 }
 
