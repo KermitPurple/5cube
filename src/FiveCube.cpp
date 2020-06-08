@@ -1,6 +1,7 @@
 #include<iostream>
 #include<FiveCube.h>
 #include<GL/glut.h>
+#include<math.h>
 
 FiveCube::FiveCube(){
     distance = 100;
@@ -54,9 +55,9 @@ void FiveCube::project_points(){
         // std::cout << projected[i].x << ", " << projected[i].z << ", " << projected[i].z << ", " << projected[i].w << std::endl;
         // convert from fourth dimension to third
         multiplier = distance * 0.75 / (distance - points[i].w);
-        projected[i].x = projected[i].x * multiplier;
-        projected[i].y = projected[i].y * multiplier;
-        projected[i].z = projected[i].z * multiplier;
+        projected[i].x = points[i].x * multiplier;
+        projected[i].y = points[i].y * multiplier;
+        projected[i].z = points[i].z * multiplier;
         // std::cout << projected[i].x << ", " << projected[i].z << ", " << projected[i].z << std::endl << std::endl;
     }
 }
@@ -92,3 +93,22 @@ void FiveCube::draw_cube(Coord* p){
         glEnd();
     }
 }
+
+void FiveCube::rotateWV(double angle){
+    total += angle;
+    if(angle > M_PI){
+        reset_points();
+    }
+    for(int i = 0; i < arr_size; i++){
+        points[i].w = points[i].w * cos(angle) - points[i].v * sin(angle);
+        points[i].v = points[i].w * sin(angle) + points[i].v * cos(angle);
+    }
+}
+
+void FiveCube::rotateZW(double angle){
+    for(int i = 0; i < arr_size; i++){
+        points[i].z = points[i].z * cos(angle) - points[i].w * sin(angle);
+        points[i].w = points[i].z * sin(angle) + points[i].w * cos(angle);
+    }
+}
+
