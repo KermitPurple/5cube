@@ -68,10 +68,9 @@ void FiveCube::draw(){
         glVertex3f(projected[i].x, projected[i].y, projected[i].z);
     }
     glEnd();
-    draw_cube(projected);
-    draw_cube(projected + cube_arr_size);
-    draw_cube(projected + cube_arr_size * 2);
-    draw_cube(projected + cube_arr_size * 3);
+    for(int i = 0; i < 4; i++){
+        draw_cube(projected + cube_arr_size * i);
+    }
 }
 
 void FiveCube::draw_cube(Coord* p){
