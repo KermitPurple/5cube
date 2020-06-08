@@ -95,10 +95,6 @@ void FiveCube::draw_cube(Coord* p){
 }
 
 void FiveCube::rotateWV(double angle){
-    total += angle;
-    if(angle > M_PI){
-        reset_points();
-    }
     for(int i = 0; i < arr_size; i++){
         points[i].w = points[i].w * cos(angle) - points[i].v * sin(angle);
         points[i].v = points[i].w * sin(angle) + points[i].v * cos(angle);
@@ -106,13 +102,26 @@ void FiveCube::rotateWV(double angle){
 }
 
 void FiveCube::rotateZW(double angle){
-    total += angle;
-    if(angle > M_PI){
-        reset_points();
-    }
     for(int i = 0; i < arr_size; i++){
         points[i].z = points[i].z * cos(angle) - points[i].w * sin(angle);
         points[i].w = points[i].z * sin(angle) + points[i].w * cos(angle);
     }
 }
 
+void FiveCube::rotateZV(double angle){
+    for(int i = 0; i < arr_size; i++){
+        points[i].v = points[i].v * cos(angle) - points[i].w * sin(angle);
+        points[i].w = points[i].v * sin(angle) + points[i].w * cos(angle);
+    }
+}
+
+void FiveCube::rotate(double angle){
+    total += angle;
+    if(total > 9){
+        reset_points();
+        total = 0;
+    }
+    rotateWV(angle);
+    rotateZW(angle);
+    // rotateZV(angle);
+}

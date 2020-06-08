@@ -20,6 +20,8 @@ public:
     static void draw_cube(Coord* p);
     void rotateWV(double angle);
     void rotateZW(double angle);
+    void rotateZV(double angle);
+    void rotate(double angle);
 };
 
 #endif /* FIV_CUBE_H */
