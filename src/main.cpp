@@ -8,7 +8,7 @@ void display(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     cube.project_points();
     cube.draw();
-    cube.rotate(0.003);
+    cube.rotate(0.0003);
     glutSwapBuffers();
     // glRotatef(0.1, 0, 0, 1);
 }
