@@ -46,6 +46,7 @@ void kbin(unsigned char key, int x, int y){
 }
 
 void print_controls(){
+    std::cout << "esc : exit" << std::endl;
     std::cout << "w, a, s, d, q, e : rotate" << std::endl;
     std::cout << "- : decrease size" << std::endl;
     std::cout << "+ : increase size" << std::endl;
